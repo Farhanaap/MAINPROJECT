@@ -1,0 +1,23 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+<body>
+  <table class="table table-dark table table-bordered table table-hover" >
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Doctor</th>
+      <th>Rating</th>
+      <th>Date</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{i['fname']}}  {{i['lname']}}</td>
+      <td>{{ i['drfname'] }} {{ i['drlname'] }}</td>
+      <td>{{ i['rating'] }}</td>
+      <td>{{ i['date'] }}</td>
+      {% endfor %}
+  </table>
+</body>
+
+{% endblock %}

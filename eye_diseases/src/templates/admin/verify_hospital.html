@@ -1,0 +1,35 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+<body>
+<form name="form1" method="post" action="">
+  <table class="table table-dark table table-bordered table table-hover" >
+    <tr>
+      <th scope="row">#</th>
+      <th>Name</td>
+      <th>Address&nbsp;</td>
+      <th>Email</td>
+      <th>&nbsp;Phone</td>
+      <th>&nbsp;</td>
+      <th>&nbsp;</td>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <th scope="row">{{ loop.index }}</th>
+      <td>{{i['name']}}</td>
+      <td><b>Place</b> {{i['place']}}<br><b>Pin</b> {{i['pin']}}</td>
+      <td>{{i['email']}}</td>
+      <td>{{i['phone']}}</td>
+        {% if i['type']=='pending' %}
+      <td align="center"><a class="btn btn-warning " href="/accept_hos?id={{ i['l_id'] }}">Accept</a></td>
+      <td align="center"><a class="btn btn-danger " href="/reject_hos?id={{ i['l_id'] }}">Reject</a></td>
+    {% elif i['type']=='shop' %}
+    <td colspan="2" align="center">Accepted</td>
+    {% else %}
+    <td colspan="2" align="center">Rejected</td>
+    {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

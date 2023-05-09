@@ -1,0 +1,23 @@
+{% extends 'doctor/doctor_index.html' %}
+{% block body %}
+<body>
+<form name="form1" method="post" action="">
+  <table class="table table-dark table table-bordered table table-hover" >
+    <tr>
+      <th scope="row">#</th>
+      <th>DAY</th>
+      <th>FROM</th>
+      <th>TO</th>
+    </tr>
+   {% for i in data %}
+       <tr>
+      <td>{{ loop.index }}&nbsp;</td>
+      <td>{{ i['day'] }}</td>
+      <td>{{ i['ftime'] }}</td>
+      <td>{{ i['totime'] }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

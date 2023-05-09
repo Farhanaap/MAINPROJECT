@@ -1,0 +1,16 @@
+{% extends 'doctor/doctor_index.html' %}
+{% block body %}
+<body>
+<form action="/add_report_post" method="post" enctype="multipart/form-data" name="form1">
+  <table class="table table-hover">
+    <tr>
+      <th scope="row">REPORT</th>
+      <td><input class="form-control" type="file" name="file"></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input class="btn btn-primary" type="submit" name="Submit" value="ADD"></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
